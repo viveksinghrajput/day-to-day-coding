@@ -184,5 +184,11 @@ public class EmployeeTest {
                 .collect(Collectors.groupingBy(Employee::getDeptName,Collectors.collectingAndThen(Collectors.toList(),
                         list->list.stream().sorted(Comparator.comparingDouble(Employee::getSalary)))))
                 .entrySet().stream().forEach(k->System.out.println(k.getKey()+" "+k.getValue().collect(Collectors.toList())));
+
+        //find all the citys, where average salary of the city is grater than national avg salary
+        Double nationalAvgSalary = 135.00;
+        employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getCity,Collectors.averagingDouble(Employee::getSalary)))
+                .entrySet().stream().filter(avgSalary->avgSalary.getValue()>nationalAvgSalary).forEach(System.out::println);
     }
 }
