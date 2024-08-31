@@ -14,6 +14,9 @@ public class SortPeople {
     private static List<String> findSortPeople(String[] names, int[] heights) {
         int numOfPeople = names.length;
         Map<Integer,String> heightToNameMap = new HashMap<>();
+        if (numOfPeople!=heights.length){
+            return new ArrayList<>(Arrays.asList("Not a valid combination"));
+        }
         for (int i=0; i<numOfPeople;i++){
             heightToNameMap.put(heights[i],names[i]);
         }
