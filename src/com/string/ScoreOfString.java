@@ -1,6 +1,5 @@
 package com.string;
 
-import sun.text.normalizer.UTF16;
 
 public class ScoreOfString {
     public static void main(String[] args) {
